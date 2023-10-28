@@ -10,35 +10,14 @@
 
 <body>
 
-    <header class="contenedor">
-        <div>
-            <h1>Sabores de Bulgaria</h1>
-            <h2><br>Empresa de catering<br>en Valencia</h2>
-        </div>
-        <div class="logo">
-            <a href="index.php"><img src="img/logo.jpeg" alt="Logo"></a>
-        </div>
-        <nav>
-            <a href="index.php">Home</a>
-            <a href="seccion_registro.php">Registro</a>
-            <a href="seccion_login.php">Login</a>
-            <a href="pagina_perfil.php">Perfil</a>
-        </nav>
-    </header>
+    <?php include 'header.php'; ?>
 
     <div class="contenedor">
-        <aside class="sidebar">
-            <div>
-                <a href="https://valenciasecreta.com/restaurantes-valencia/"><img src="img/restaurantes.jpeg" alt="Recetas Destacadas"><h4>Restaurantes</h4></a>
-                <a href="https://www.lovevalencia.com/agenda/gastronomia"><img src="img/eventos-culinarios.jpeg" alt="Eventos culinarios"><h4>Eventos<br>culinarios</h4></a>
-                <a href="https://canalcocina.es/receta/musaka-bulgara"><img src="img/video-tutoriales.jpg" alt="Video tutoriales"><h4>Videos y<br>tutoriales</h4></a>
-                <a href="https://viajarabulgaria.com/comida-tipica-de-bulgaria/"><img src="img/ingredientes.jpeg" alt="Ingredientes tipicos"><h4>Ingredientes<br>tipicos</h4></a>
-            </div>
-        </aside>
 
+    <?php include 'aside.php'; ?>
         <main>
             <div class="informacion">
-                <h3>Breve información para la cocina de Bulgaria:</h3>
+                <h3 id="info">Breve información para la cocina de Bulgaria:</h3>
                 <p>
                     La cocina búlgara (en búlgaro: българска кухня) es representativa de la gastronomía de los Balcanes,
                     teniendo trazas de la cocina turca, la cocina griega y la cocina árabe, se puede encontrar en menor
@@ -61,12 +40,8 @@
             </div>
         </main>
     </div>
-    <footer>
-        <h4>Veselin Vladimirov Veselinov</h4>
-        <?php
-        echo date("d/m/Y H:i:s");
-        ?>
-    </footer>
+
+    <?php include 'footer.php'; ?>
 
 </body>
 
