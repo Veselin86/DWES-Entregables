@@ -7,9 +7,9 @@
         <a href="index.php"><img src="img/logo.png" alt="Logo"></a>
     </div>
     <nav>
-        <a href="index.php">Home</a>
-        <a href="registro.php">Registro</a>
-        <a href="login.php">Login</a>
-        <a href="perfil.php">Perfil</a>
+        <a href="index.php?page=home">Home</a>
+        <a href="index.php?page=registro">Registro</a>
+        <a href="index.php?page=login">Login</a>
+        <a href="index.php?page=perfil">Perfil</a>
     </nav>
 </header>
