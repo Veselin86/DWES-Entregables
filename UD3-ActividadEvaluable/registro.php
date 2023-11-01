@@ -1,30 +1,25 @@
 <main>
-    <div class="informacion">
-        <h3 style="color:firebrick; font-size:30px;">REGISTRO</h3>
-        <form action="pregistro.php" method="POST" name="registro">
-            <p>Datos personales:</p>
-            <label for="nombre">Nombre completo:</label>
-            <input style="width: 750px;" type="text" name="nombre" id="nombre"><br>
-            <label for="direccion">Dirección completa:</label>
-            <input style="width: 750px;" type="text" name="direccion" id="direccion"><br>
-            <label for="ciudad">Ciudad:</label>
-            <input style="width: 300px;" type="text" name="ciudad" id="ciudad"><br>
-            <label for="cp">Codigo postal:</label>
-            <input style="width: 100px;" type="number_format" name="cp" id="cp"><br>
-            <p>Contaco:</p>
-            <label for="email">Correo electronico:</label>
-            <input style="width: 300px;" type="text" name="email" id="email"><br>
-            <label for="telefono">Numero de telefono:</label>
-            <input style="width: 100px;" type="number_format" name="telefono" id="telefono"><br>
-            <p>Credenciales:</p>
-            <label for="user">Nombre de Usuario:</label>
-            <input style="width: 300px;" type="text" name="user" id="user"><br>
-            <label for="pass">Contraseña:</label>
-            <input style="width: 300px;" type="password" name="pass" id="pass"><br>
-            <label for="conf_pass">Confirmar contraseña:</label>
-            <input style="width: 300px;" type="password" name="conf_pass" id="conf_pass"><br>
-            <input type="submit" value="Enviar">
-            <input type="reset" value="Limpiar formulario">
-        </form>
+    <div class="informacion-formulario">
+        <h3>Formulario para<br>realizar el registro:</h3>
+        <div class="contenedor-formulario">
+            <form action="pregistro.php" method="POST" name="registro">
+                <label for="nombre">Nombre completo:</label><br>
+                <input style="width: 500px;" type="text" name="nombre" id="nombre" placeholder="Nombre Apellido1 Apellido2"><br>
+                <p>Contaco:</p>
+                <label for="email">Correo electronico:</label><br>
+                <input style="width: 300px;" type="text" name="email" id="email" placeholder="nombre@dominio.es"><br>
+                <label for="telefono">Numero de telefono:</label><br>
+                <input style="width: 300px;" type="number_format" name="telefono" id="telefono" placeholder="XXX-XX-XX-XX"><br>
+                <p>Credenciales:</p>
+                <label for="user">Nombre de Usuario:</label><br>
+                <input style="width: 300px;" type="text" name="user" id="user" placeholder="Usuario"><br>
+                <label for="pass">Contraseña:</label><br>
+                <input style="width: 300px;" type="password" name="pass" id="pass" placeholder="*********"><br>
+                <label for="conf_pass">Confirmar contraseña:</label><br>
+                <input style="width: 300px;" type="password" name="conf_pass" id="conf_pass" placeholder="*********"><br><br>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpiar formulario">
+            </form>
+        </div>
     </div>
 </main>

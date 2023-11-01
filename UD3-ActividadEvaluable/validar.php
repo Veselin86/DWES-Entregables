@@ -8,8 +8,8 @@
         }
     }
 
-    function validar_requerido (string $text) : bool {
-        return !(trim($text) == '');
+    function validar_requerido (string $texto) : bool {
+        return !(trim($texto) === '');
     }
 
     function validar_email (string $email) : bool {
@@ -20,4 +20,8 @@
         return $pass == $conf_pass;
     } 
 
+    function validar_telefono ($telefono) : bool {
+        $patron = "/^(\+34|0034|34)?[ -]*(6|7|8|9)[ -]*([0-9][ -]*){8}$/";
+        return preg_match($patron, $telefono);
+    }
 ?>

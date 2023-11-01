@@ -1,3 +1,9 @@
+<?php 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -20,7 +26,6 @@
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
 
-
             switch ($page) {
                 case 'registro':
                     include 'registro.php';
@@ -32,10 +37,14 @@
                     include 'perfil.php';
                     break;
                 case 'home':
+                    include 'principal.php';
+                    break;
                 default:
                     include 'principal.php';
                     break;
             }
+        } else {
+            include 'principal.php';
         }
         ?>
 
