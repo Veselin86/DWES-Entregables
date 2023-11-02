@@ -1,4 +1,4 @@
-<?php 
+<?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -17,17 +17,18 @@ if (empty($user) || empty($pass)) {
     $error_message = "Por favor, completa todos los campos.";
     header("Location: index.php?page=login&error=$error_message");
     exit;
-} else {
-    if ($user == $_COOKIE['user'] && password_verify($pass, $_COOKIE['pass'])) {
-        $_SESSION['user'] = true;
-        header("Location: index.php?page=perfil");
-        exit;
-    } else {
-        $error_message = "Usuario y/o contraseña incorrectos.";
-        header("Location: index.php?page=login&error=$error_message");
-        exit;
-    }
 }
+
+if (isset($_COOKIE['user']) && isset($_COOKIE['pass']) && $user == $_COOKIE['user'] && password_verify($pass, $_COOKIE['pass'])) {
+    $_SESSION['user'] = true;
+    header("Location: index.php?page=perfil");
+    exit;
+} else {
+    $error_message = "Usuario y/o contraseña incorrectos.";
+    header("Location: index.php?page=login&error=$error_message");
+    exit;
+}
+
 ?>
 
 <main>
@@ -43,7 +44,7 @@ if (empty($user) || empty($pass)) {
 <?php
 
 if (isset($_GET['error'])) {
-    echo "<p>" . $_GET['error'] . "</p>";
+    echo "<div class='mensaje-error'><p>" . $_GET['error'] . "</p></div>";
 }
 
 ?>

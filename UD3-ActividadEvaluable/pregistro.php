@@ -16,46 +16,44 @@ $campos = [
 ];
 
 $errores = false;
-
+$error_message = "";
 foreach ($campos as $nombreCampo => $valorCampo) {
     if (!validar_requerido($valorCampo ?? '')) {
         $errores = true;
-        $error_message = "El campo $nombreCampo es obligatorio.<br>";
-        header("Location: index.php?page=registro&error=$error_message");
-        exit;
+        $error_message .= "El campo $nombreCampo es obligatorio.<br>";
     }
 }
 
 if (!validar_password($_REQUEST['pass'], $_REQUEST['conf_pass'])) {
     $errores = true;
-    $error_message = "La contraseña y la confirmación no coinciden.<br>";
-    header("Location: index.php?page=registro&error=$error_message");
-    exit;
+    $error_message .= "La contraseña y la confirmación no coinciden.<br>";
 }
 
 if (!validar_email($_REQUEST['email'])) {
     $errores = true;
-    $error_message = "El campo de correo electronico tiene un formato no válido.<br>";
-    header("Location: index.php?page=registro&error=$error_message");
-    exit;
+    $error_message .= "El campo de correo electronico tiene un formato no válido.<br>";
 }
 
 if (!validar_telefono($_REQUEST['telefono'])) {
     $errores = true;
-    $error_message = "El telefono tiene un formato incorecto.<br>";
-    header("Location: index.php?page=registro&error=$error_message");
+    $error_message .= "El telefono tiene un formato incorecto.<br>";
+}
+
+if ($errores) {
+    $_SESSION['error_message'] = $error_message;
+    header("Location: index.php?page=registro");
     exit;
 }
 
-if (!$errores) {
 
+if (!$errores) {
+    $user = $_REQUEST['user'];
     $pass_encriptada = password_hash($_REQUEST['pass'], PASSWORD_BCRYPT);
     $datos_usuario = [$_REQUEST['nombre'], $_REQUEST['email'], $_REQUEST['telefono'], $_REQUEST['user']];
     $caducidad = time() + 3600;
         
-    setcookie('user', $_REQUEST['user'], $caducidad);
+    setcookie('user', $user, $caducidad);
     setcookie('pass', $pass_encriptada, $caducidad);
-    setcookie('usuario_datos', serialize($datos_usuario), $caducidad);
     header('Location: index.php?page=login');
     exit;
 }
@@ -66,7 +64,7 @@ if (!$errores) {
     <div class="informacion-formulario">
         <h3>Formulario para<br>realizar el registro:</h3>
         <div class="contenedor-formulario">
-            <form action="pregistro.php" method="POST" name="registro">
+            <form action="pregistro.php" method="POST">
                 <label for="nombre">Nombre completo:</label><br>
                 <input style="width: 500px;" type="text" name="nombre" id="nombre" placeholder="Nombre Apellido1 Apellido2"><br>
                 <p>Contaco:</p>
@@ -90,8 +88,8 @@ if (!$errores) {
 
 <?php
 
-if (isset($_GET['error'])) {
-    echo "<p>" . $_GET['error'] . "</p>";
+if (isset($_SESSION['error_message'])) {
+    echo "<div  class='mensaje-error'><p>" . $_SESSION['error_message'] . "</p></div>";
+    unset($_SESSION['error_message']);
 }
-
 ?>

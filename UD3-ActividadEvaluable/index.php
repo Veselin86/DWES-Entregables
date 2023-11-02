@@ -1,4 +1,4 @@
-<?php 
+<?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -20,8 +20,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
     <div class="contenedor">
 
-        <?php include 'aside.php'; ?>
-
         <?php
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
@@ -39,6 +37,9 @@ if (session_status() == PHP_SESSION_NONE) {
                 case 'home':
                     include 'principal.php';
                     break;
+                // case 'pregistro':
+                //     include 'pregistro.php';
+                //     break;
                 default:
                     include 'principal.php';
                     break;
@@ -48,6 +49,7 @@ if (session_status() == PHP_SESSION_NONE) {
         }
         ?>
 
+        <?php include 'aside.php'; ?>
 
     </div>
 

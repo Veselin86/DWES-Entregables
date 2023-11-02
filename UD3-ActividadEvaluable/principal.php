@@ -29,7 +29,7 @@
             <button type="button">Botón</button>
         </a>
         <a href="index.php"><img src="img/recetas-destacadas.jpeg" alt="Destacadas">
-            <h3>Recetas Destacadas<h3>
+            <h3>Recetas Destacadas</h3>
             <button type="button">Botón</button>
         </a>
     </div>

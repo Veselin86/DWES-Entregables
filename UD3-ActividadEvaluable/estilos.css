@@ -9,10 +9,27 @@
 }
 
 .contenedor-formulario {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    place-items: center;
-    margin-right: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 228, 196, 0.5);
+    font-size: 20px;
+    color:firebrick;
+}
+
+.contenedor-perfil {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color:  rgba(255, 228, 196, 0.5); 
+    font-size: 20px;
+    color:firebrick;
 }
 
 .sidebar {
@@ -40,6 +57,17 @@
     text-align: justify;
 }
 
+.mensaje-error {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    color: red;
+    background-color: #ffe6e6;
+    border: 1px solid red;
+    padding: 10px;
+    font-size: 20px;
+}
+
 .informacion h3{
     text-align: center;
     font-style: normal;
@@ -60,7 +88,7 @@ html, body {
     display: flex;
     flex-direction: column;
     flex: 1;
-    height: 100%;
+    min-height: 100vh;
 }
 
 body ::before {
@@ -100,6 +128,7 @@ aside div img {
 main {
     display: flex;
     flex-direction: column;
+    flex: 1;
     gap: 20px;
     padding: 20px;
     margin-right: 20px;
